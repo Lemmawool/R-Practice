@@ -3,7 +3,7 @@
 # Load Functions and data sets
 source("computeCost.R")
 source("gradientDescent.R")
-data <- read.csv("~/R-Practice/ex1/data1.txt", header=FALSE)
+data <- read.csv("~/R-Practice/exercise1/data1.txt", header=FALSE)
 
 X <- data[,1]
 y <- data[,2]

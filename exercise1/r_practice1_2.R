@@ -5,7 +5,7 @@
 source("featureNormalize.R")
 source("gradientDescent.R")
 source("normalEquation.R")
-data <- read.csv("~/R-Practice/ex1/data2.txt", header=FALSE)
+data <- read.csv("~/R-Practice/exercise1/data2.txt", header=FALSE)
 
 # Compute theta using a normalized set of features.
 num_features <- length(data[1,])
