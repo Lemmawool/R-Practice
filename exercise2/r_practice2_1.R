@@ -20,4 +20,7 @@ grad <- gradientFunc(theta, X, y)
 cost2 <- costFunc(theta2, X, y)
 grad2 <- gradientFunc(theta2, X, y)
 
-optim(theta, costFunc, gradFunc, X=X, y=y, method="BFGS", control=list(maxit=500))
+result <- optim(theta, costFunc, gradFunc, X=X, y=y, method="BFGS", control=list(maxit=500))
+theta <- result$par
+
+
