@@ -1,4 +1,4 @@
-
+# Experimenting with Logistic Regression and R's optim function.
 
 source("sigmoid.R")
 source("costFunction.R")
@@ -12,9 +12,12 @@ n <- ncol(X)
 X <- cbind(rep(1,m), X)
 
 theta <- matrix(c(rep(0,n+1)), nrow = n+1, ncol = 1)
+theta2 <- matrix(c(-24, 0.2, 0.2), nrow = n+1, ncol = 1)
 
-J <- costFunction(theta, X, y)
+cost <- costFunc(theta, X, y)
+grad <- gradientFunc(theta, X, y)
 
+cost2 <- costFunc(theta2, X, y)
+grad2 <- gradientFunc(theta2, X, y)
 
-
-
+optim(theta, costFunc, gradFunc, X=X, y=y, method="BFGS", control=list(maxit=500))
