@@ -4,3 +4,10 @@ costFuncReg <- function(theta, X, y, lambda) {
   J <- J + (lambda / (2*m)) * (t(tail(theta, 2)) * tail(theta, 2))
   return (J)
 }
+
+gradFuncReg <- function(theta, X, y, lambda) {
+  grad <- (1/m) * t(X) %*% (sigmoid (X %*% theta) - y)
+  grad <- c(head(grad,1), tail(grad, 2) + (lambda/m)*tail(theta,2))
+  return (grad)
+}
+
