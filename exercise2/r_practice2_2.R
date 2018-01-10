@@ -3,6 +3,7 @@
 source("sigmoid.R")
 source("costFuncReg.R")
 source("mapFeature.R")
+source("predict.R")
 
 train <- read.csv('~/R-Practice/exercise2/exercise2data2.txt', header=FALSE)
 X <- as.matrix(train[,1:2])
@@ -20,4 +21,9 @@ gradReg2 <- gradFuncReg(theta, X, y, lambda2)
 
 result <- optim(theta, costFuncReg, gradFuncReg, X=X, y=y, lambda=lambda, method="BFGS", control=list(maxit=500))
 theta <- result$par
+
+prediction <- predict(X, theta)
+
+
+
 

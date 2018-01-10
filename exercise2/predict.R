@@ -1,3 +1,3 @@
-predict <- function(theta, X) {
-  return (sigmoid (t(theta) %*% t(X)) >= 0.5)
+predict <- function(X, theta) {
+  return (sigmoid(X %*% theta) >= 0.5)
 }
