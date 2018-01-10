@@ -1,4 +1,4 @@
-
+# More Experimention with Logistic Regression and R's optim function.
 
 source("sigmoid.R")
 source("costFuncReg.R")
@@ -13,4 +13,11 @@ theta <- c(rep(0,28))
 lambda <- 1
 costReg <- costFuncReg(theta, X, y, lambda)
 gradReg <- gradFuncReg(theta, X, y, lambda)
+
+lambda2 <- 10
+costReg2 <- costFuncReg(theta, X, y, lambda2)
+gradReg2 <- gradFuncReg(theta, X, y, lambda2)
+
+result <- optim(theta, costFuncReg, gradFuncReg, X=X, y=y, lambda=lambda, method="BFGS", control=list(maxit=500))
+theta <- result$par
 
