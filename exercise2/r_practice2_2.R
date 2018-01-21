@@ -24,6 +24,23 @@ theta <- result$par
 
 prediction <- predict(X, theta)
 
+install.packages("ggplot2")
+library(ggplot2)
+
+train_dataframe = data.frame(
+  "V1" = train[,1],
+  "V2" = train[,2],
+  "V3" = train[,3]
+)
+plot(V1 ~ V2, data=subset(train_dataframe, V3 == 0))
+
+points(V1 ~ V2, col="red", data=subset(train_dataframe, V3 == 1))
+
+ggplot(subset(train_dataframe, V3 %in% c(0,1)),
+  aes(x=V1, y=V2, color=V3))+geom_point()
+
+
+
 
 
 
