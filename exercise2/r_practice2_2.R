@@ -23,6 +23,8 @@ result <- optim(theta, costFuncReg, gradFuncReg, X=X, y=y, lambda=lambda, method
 theta <- result$par
 
 prediction <- predict(X, theta)
+prediction_accuracy <- sum((y == prediction) * 1) / length(y)
+sprintf("The accuracy of our prediction is: %s", prediction_accuracy)
 
 #install.packages("ggplot2")
 library(ggplot2)
